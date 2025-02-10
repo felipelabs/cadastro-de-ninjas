@@ -1,6 +1,8 @@
-package dev.felipelabs.CadastroDeNinjas;
+package dev.felipelabs.CadastroDeNinjas.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -9,7 +11,10 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Size(min = 2)
     private String nome;
+    @Email
     private String email;
     private int idade;
 
